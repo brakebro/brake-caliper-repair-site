@@ -1,0 +1,723 @@
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/roboto-v47-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/roboto-v47-latin-700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Roboto', sans-serif; background: #f8f9fa; color: #111; }
+header {
+  background: #000;
+  color: #fff;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#contact {
+  scroll-margin-top: 30vh; /* смещение на 30% высоты экрана */
+}
+
+.hero {
+  background-color: #111; /* ← запасной цвет */
+  background-image: url('background.webp');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 15%;
+  color: white;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* затемнение для читаемости текста */
+  z-index: 1;
+}
+
+.hero-btn {
+  padding: 15px 30px;
+  background: #e50914;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.hero-btn:hover {
+  background: #c40812;
+}
+
+
+.hero-content {
+  position: relative;
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 25px; /* ← отступ между текстом и кнопкой */
+  line-height: 1.5;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.hero-content button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero-content button:hover {
+  background: #c40812;
+}
+
+.branding {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: #111;
+  color: #fff;
+  padding: 10px 100px 2px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.brand-main {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.brand-sub {
+  font-size: 13px;
+  color: #aaa;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.brand-bub {
+  font-size: 13px;
+  color: #aaa;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.features, .services, .testimonials {
+  padding: 30px 40px 20px;
+  text-align: center;
+}
+.features h2, .services h2, .testimonials h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+
+}
+
+.testimonials .testimonial {
+  margin: 15px auto;
+  max-width: 600px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.symptom-grid {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.symptom {
+  flex: 1;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.symptom:not(:last-child) {
+  border-right: 1px solid #ccc;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto); /* ← убираем растяжение */
+  column-gap: 24px;
+  row-gap: 30px;
+  justify-content: center; /* ← центруем весь блок */
+}
+
+.service {
+  max-width: 310px;
+  width: 100%;
+}
+
+.services h3 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.service img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: cover
+  aspect-ratio: 3 / 2;
+}
+
+.service p {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.25px;
+}
+
+.seo-text {
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  border-radius: 16px;
+  padding: 20px 30px 30px;
+  }
+
+.seo-text h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.seo-text h5 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.seo-text ul {
+  padding-left: 20px;
+  text-align: left;
+}
+
+.seo-text blockquote {
+  margin: 30px 0;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+  font-style: italic;
+  color: #444;
+}
+
+.cta-inline {
+  background: #f4f4f4;
+  border-left: 4px solid #e50914;
+  padding: 20px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #111;
+  margin: 30px auto 30px;
+  border-radius: 8px;
+  max-width: 800px;
+  text-align: center;
+}
+
+.location {
+  text-align: center;
+  padding: 0px 40px;
+}
+
+.location h4 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.location p {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.map iframe {
+  border-radius: 8px;
+  margin-bottom: 30px;
+  max-width: 100%;
+}
+
+.light-theme {
+  background-color: #f4f4f4;
+  color: #111;
+}
+
+.final-call {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+.final-call h4 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 0.3px;
+}
+
+.final-call .subtitle {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: #000000;
+}
+
+.final-telegram {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  color: #229ED9;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 12px;
+  transition: 0.3s ease;
+  border: 1.5px solid #0088cc; /* рамка вокруг */
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.final-telegram:hover {
+  background: rgba(0, 136, 204, 0.05); /* лёгкая подсветка */
+  text-decoration: none;
+}
+
+.final-phone {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 28px;
+  color: #e50914;
+  font-weight: 500;
+  text-decoration: underline;
+  transition: opacity 0.3s ease;
+}
+
+.final-phone:hover {
+  opacity: 0.8;
+}
+
+.tg-icon {
+  width: 24px;
+  height: 24px;
+}
+
+
+.faq-preview {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 800px;
+  margin-bottom: 110px; /* ⬅️ добавили место под “парящие” карточки */
+}
+
+.faq-divider {
+  width: 120px;
+  height: 2px;
+  background-color: #ccc;
+  border: none;
+  margin: 30px auto 30px;
+
+}
+
+.faq-preview h5 {
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+.faq-scatter {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  min-height: 300px;
+}
+
+.faq-card {
+  background: #eee;
+  border-left: 6px solid #e50914;
+  padding: 20px 25px;
+  border-radius: 12px;
+  width: 250px;
+  position: relative;
+  text-align: left;
+  transition: all 0.3s ease;
+  cursor: default;
+  color: #333; /* ← базовый цвет */
+}
+
+.faq-card:hover {
+  border-left: none;
+  background-color: #e50914;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.faq-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+
+/* ДОБАВЛЯЕМ: переопределим цвета прямо при наведении */
+.faq-card:hover p,
+.faq-card:hover strong {
+  color: #fff;
+}
+
+/* Заголовок вопроса */
+.faq-card strong {
+  display: inline-block;
+  position: relative;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #000; /* ← вот он мешал inherit */
+}
+
+/* Описание вопроса */
+.faq-card p {
+  margin: 0;
+  font-size: 15px;
+  color: #333; /* ← и это */
+}
+
+
+
+.faq-card p {
+  margin: 0;
+  font-size: 15px;
+  color: #333;
+}
+
+
+/* Плавающее позиционирование — как ты просил */
+
+.faq-left {
+  transform: translate(-20px, 0px); /* левее и выше */
+}
+
+.faq-right {
+  transform: translate(10px, 70px); /* правее и чуть ниже */
+}
+
+.faq-center {
+  transform: translate(10px, 70px); /* по центру, но опущен вниз */
+}
+
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a; /* очень тёмный фон */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #444; /* тёмно-серый бегунок */
+  border-radius: 10px;
+  border: 2px solid #1a1a1a;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #1a1a1a; /* thumb | track */
+}
+
+.footer {
+  background-color: #111;
+  color: #ccc;
+  padding: 40px 20px 20px;
+  font-size: 14px;
+}
+
+.footer-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Три равные колонки */
+  gap: 30px;
+  align-items: start;
+  text-align: center;
+}
+
+
+.footer-brand h6 {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.footer-brand p {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.footer-nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: white;
+}
+
+
+.footer-contact p {
+  margin: 0;
+  color: #ccc;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #333;
+  margin-top: 30px;
+  padding-top: 15px;
+  color: #777;
+  font-size: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #111;
+    color: #eee;
+  }
+
+  .hero,
+  .branding,
+  .top-bar,
+  .footer {
+    background-color: #000;
+    color: #fff;
+  }
+  .seo-text {
+    text-align: left;
+    border-radius: 16px;
+    overflow: hidden; /* Чтобы фон или изображение не вылезало за края */
+    margin: 30px auto;
+  }
+
+  .seo-text blockquote p {
+    color: #eee;
+  }
+  .faq-card p,
+  .faq-card strong {
+    color: #eee;
+  }
+
+  .service {
+    background: transparent !important;
+  }
+
+  .service p {
+    background: transparent !important;
+    color: #eee;
+  }
+  .faq-card {
+    background: #222;
+    border-left-color: #e50914;
+    color: #ddd;
+  }
+
+  .faq-card:hover {
+    background: #e50914;
+    color: #fff;
+  }
+
+  .service p,
+  .seo-text,
+  .cta-inline,
+  .location {
+    background-color: #1a1a1a;
+    color: #eee;
+    padding-top: 20px;
+  }
+
+  .cta-inline {
+    border-left-color: #e50914;
+  }
+
+  section.final-call {
+  background: #1a1a1a;
+  color: #eee;
+  }
+
+  .footer-nav a {
+    color: #ccc;
+  }
+
+  .footer-nav a:hover {
+    color: #fff;
+  }
+
+  .final-telegram {
+    border-color: #229ED9;
+    color: #229ED9;
+  }
+
+  .final-telegram:hover {
+    background: rgba(34, 158, 217, 0.1);
+  }
+
+  .final-call .subtitle {
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: #C0C0C0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background-position: center top;
+    background-size: cover;
+    padding: 60px 20px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+  }
+
+  .hero-content button,
+  .hero-btn {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+  .branding {
+    padding: 10px 20px; /* меньше отступ слева и справа */
+    text-align: left;
+  }
+
+  .brand-main {
+    font-size: 22px;
+  }
+
+  .brand-sub {
+    font-size: 12px;
+  }
+
+  .footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-brand,
+  .footer-nav,
+  .footer-contact {
+    align-items: center;
+  }
+
+  .symptom-grid {
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 20px;
+  }
+
+  .symptom:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .faq-scatter {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    min-height: auto;
+  }
+
+  .faq-left,
+  .faq-right,
+  .faq-center {
+    transform: none !important;
+  }
+
+  .faq-card {
+    width: 90%; /* адаптивно под экран */
+    max-width: 320px;
+  }
+}
