@@ -602,7 +602,6 @@ html {
     color: #eee;
   }
 
-  .hero,
   .branding,
   .top-bar,
   .footer {
@@ -692,10 +691,7 @@ html {
 }
 
 @media (max-width: 768px) {
-  .hero {
-    background: none !important;
-    /* Если вдруг был overlay через ::before — тоже скроется */
-  }
+
   .hero-content {
     max-width: 100%;
     padding-left: 10%;  /* добавь сюда! */
