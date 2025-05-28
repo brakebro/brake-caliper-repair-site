@@ -39,16 +39,11 @@ html {
 }
 
 .hero {
-  position: relative;
-  overflow: hidden;
-  background-color: #111; /* ← запасной цвет */
   background-image: url('background.webp');
-  background-position: center center;
   background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
-  height: auto;
   min-height: 100vh;
-  position: relative;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -697,16 +692,6 @@ html {
 }
 
 @media (max-width: 768px) {
-  .hero {
-    background-image: url('phonebackground.webp');
-    background-repeat: no-repeat;
-    background-size: 100% auto;      /* НЕ cover! */
-    background-position: top center;
-    min-height: auto;
-    height: auto;
-    padding-top: 70px; /* или высота картинки */
-    padding-bottom: 32px;
-  }
 
   .hero-content {
     max-width: 100%;
