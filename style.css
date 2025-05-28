@@ -39,16 +39,28 @@ html {
 }
 
 .hero {
-  background-image: url('background.webp');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  position: relative;
   min-height: 100vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding-right: 15%;
   color: white;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-content {
+  position: relative;
+  max-width: 600px;
+  z-index: 1;
 }
 
 .hero-bg {
@@ -82,14 +94,6 @@ html {
 
 .hero-btn:hover {
   background: #c40812;
-}
-
-
-.hero-content {
-  position: relative;
-  max-width: 600px;
-  position: relative;
-  z-index: 1;
 }
 
 .hero-content p {
