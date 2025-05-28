@@ -698,10 +698,13 @@ html {
 
 @media (max-width: 768px) {
   .hero {
-    background-image: url('phonebackground.webp'); /* ← свой фон для мобильных! */
-    min-height: 60vh; /* Ограничение высоты, если нужно */
-    background-position: top center; /* Или по вкусу */
-    padding-top: 32px;
+    background-image: url('phonebackground.webp');
+    background-repeat: no-repeat;
+    background-size: 100% auto;      /* НЕ cover! */
+    background-position: top center;
+    min-height: auto;
+    height: auto;
+    padding-top: 200px; /* или высота картинки */
     padding-bottom: 32px;
   }
 
