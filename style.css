@@ -211,7 +211,41 @@ footer {
   row-gap: 30px;
   justify-content: center; /* ← центруем весь блок */
 }
+.service-grid a.service {
+  display: inline-block; /* именно так, не flex и не block! */
+  background: none;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: box-shadow 0.2s, background 0.2s;
+  box-shadow: none;
+  cursor: pointer;
+  /* width: auto; - не нужно! */
+  /* height: auto; - не нужно! */
+}
 
+.service-grid a.service img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  aspect-ratio: 3/2;
+  transition: transform 0.18s;
+}
+
+.service-grid a.service p {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.25px;
+  color: inherit;
+  background: none;
+  margin: 0;
+  transition: color 0.2s;
+}
+
+.service-grid a.service:hover img {
+  transform: scale(1.04);
+}
 .service {
   max-width: 310px;
   width: 100%;
@@ -590,6 +624,10 @@ html {
     color: #eee;
   }
 
+  .service-grid a.service p {
+    color: #eee;
+  }
+
   .service {
     background: transparent !important;
   }
@@ -734,5 +772,17 @@ html {
   .faq-card {
     width: 90%; /* адаптивно под экран */
     max-width: 320px;
+  }
+}
+
+@media (max-width: 900px) {
+  .service-grid {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+@media (max-width: 600px) {
+  .service-grid {
+    grid-template-columns: 1fr;
   }
 }
