@@ -698,12 +698,14 @@ html {
 
 @media (max-width: 768px) {
   .hero {
-    background-position: center top;
-    background-size: cover;
-    padding: 60px 20px;
-    position: relative;
-    overflow: hidden;
+    min-height: 60vh;               /* Ограничиваем высоту */
+    background-position: top center; /* Можно оставить center center, если красивее */
+    background-size: cover;         /* Оставляем cover */
+    padding-top: 32px;              /* Отступ сверху для текста */
+    padding-bottom: 32px;           /* Отступ снизу для текста */
   }
+}
+
 
   .hero-content {
     max-width: 100%;
