@@ -156,10 +156,16 @@ html {
   letter-spacing: 0.3px;
 }
 
-.features, .services, .testimonials {
+.features, .testimonials {
   padding: 30px 40px 20px;
   text-align: center;
 }
+
+.services {
+  padding: 30px 40px 40px;
+  text-align: center;
+}
+
 .features h2, .services h2, .testimonials h2 {
   margin-bottom: 30px;
   font-size: 28px;
@@ -210,6 +216,7 @@ footer {
   column-gap: 24px;
   row-gap: 30px;
   justify-content: center; /* ← центруем весь блок */
+
 }
 .service-grid a.service {
   display: inline-block; /* именно так, не flex и не block! */

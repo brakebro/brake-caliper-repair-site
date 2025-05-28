@@ -16,6 +16,7 @@
       line-height: 1.7;
       display: flex;
       justify-content: center;
+      padding-top: 80px;
     }
 
     .top-bar {
@@ -46,7 +47,7 @@
       font-weight: 500;
       padding: 6px 12px;
       border-radius: 10px;
-      transition: all 0.5s ease;
+      transition: all 0.6s ease;
     }
 
     .top-bar a.site-link {
@@ -57,6 +58,26 @@
       border: 1px solid #fff;
     }
 
+    .contacts-block a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px dashed #e50914;
+    transition: color 0.3s;
+    font-weight: 500;
+    }
+    .contacts-block a:hover,
+    .contacts-block a:focus {
+    color: #e50914;
+    border-bottom: 1px solid #e50914;
+    text-decoration: none;
+    }
+    .contacts-block {
+    margin-top: 12px;
+    margin-bottom: 28px;
+    font-size: 18px;
+    line-height: 1.8;
+    }
+    
     @media (max-width: 600px) {
       .top-bar-inner {
         flex-direction: column;
@@ -75,11 +96,6 @@
         font-size: 16px;
       }
     }
-
-  body {
-    padding-top: 80px; /* отступ сверху для фикса полосы */
-  }
-
     .container {
       max-width: 800px;
       width: 100%;
@@ -119,7 +135,43 @@
       border-radius: 6px;
       font-weight: 500;
     }
+
+    /* === Тёмная тема === */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #181818;
+        color: #e0e0e0;
+      }
+
+      .container {
+        background: #232323;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      }
+
+      .top-bar {
+        background: #222;
+        color: #fff;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      }
+      .top-bar a,
+      .top-bar span {
+        color: #fff;
+      }
+      .top-bar a.site-link,
+      .top-bar a.back-link:hover {
+        border: 1px solid #fff;
+      }
+      h1, h2 {
+        color: #ff4b4b;
+      }
+      .cta {
+        background: #252525;
+        border-left: 4px solid #ff4b4b;
+        color: #ffeaea;
+      }
+    }
   </style>
+
 </head>
 <body>
   <div class="top-bar">
@@ -173,6 +225,14 @@
       Нужна диагностика или восстановление суппорта?<br>
       Обращайтесь — посмотрим, объясним и предложим лучшее решение именно под вашу ситуацию.
     </div>
+
+    <h2>Контакты</h2>
+    <div class="contacts-block">
+      ул. Вузовская, 14, Нижний Новгород<br>
+      Телефон: <a href="tel:+79990000000">+7 (999) 000-00-00</a><br>
+      Telegram: <a href="https://t.me/brakebro" target="_blank">@brakebro</a>
+    </div>
+
   </div>
 </body>
 </html>
