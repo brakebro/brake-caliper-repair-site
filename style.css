@@ -1,20 +1,8 @@
 
-@font-face {
-  font-family: 'Roboto';
-  src: url('/fonts/roboto-v47-latin-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Roboto';
-  src: url('/fonts/roboto-v47-latin-700.woff2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Roboto', sans-serif; background: #f8f9fa; color: #111; }
+body { font-family: Arial, sans-serif; }
+
 header {
   background: #000;
   color: #fff;
