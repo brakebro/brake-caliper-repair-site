@@ -698,14 +698,12 @@ html {
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 60vh;               /* Ограничиваем высоту */
-    background-position: top center; /* Можно оставить center center, если красивее */
-    background-size: cover;         /* Оставляем cover */
-    padding-top: 32px;              /* Отступ сверху для текста */
-    padding-bottom: 32px;           /* Отступ снизу для текста */
+    background-image: url('phonebackground.webp'); /* ← свой фон для мобильных! */
+    min-height: 60vh; /* Ограничение высоты, если нужно */
+    background-position: top center; /* Или по вкусу */
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
-}
-
 
   .hero-content {
     max-width: 100%;
