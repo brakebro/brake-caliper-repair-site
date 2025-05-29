@@ -680,6 +680,10 @@ html {
     z-index: 2;
   }
 
+  .hero-content {
+  padding-top: 0; /* убираем, если вдруг был */
+  }
+
   .hero-content h1 {
     font-size: 28px;
   }
