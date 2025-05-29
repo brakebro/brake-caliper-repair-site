@@ -674,14 +674,16 @@ html {
   .hero-content {
     position: relative;
     max-width: 600px;
-    padding-top: 0px;
-    padding-left: 10%;
+    min-height: 60vh;
+    padding-top: 20px;
     padding-right: 0;
     z-index: 2;
   }
 
   .hero-content {
-  padding-top: 0; /* убираем, если вдруг был */
+    padding-top: 0;
+    padding-left: 10%;
+    padding-right: 0;
   }
 
   .hero-content h1 {
