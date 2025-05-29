@@ -674,6 +674,7 @@ html {
   .hero-content {
     position: relative;
     max-width: 600px;
+    padding-top: 100px;
     padding-left: 10%;
     padding-right: 0;
     z-index: 2;
