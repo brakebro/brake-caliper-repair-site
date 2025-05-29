@@ -674,7 +674,8 @@ html {
   .hero-content {
     position: relative;
     max-width: 600px;
-    z-index: 1;
+    padding: 0 10%;
+    z-index: 2;
   }
 
   .hero-content h1 {
