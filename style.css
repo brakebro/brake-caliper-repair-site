@@ -57,20 +57,6 @@ html {
   object-fit: cover;
   z-index: 0;
 }
-.hero-content {
-  position: relative;
-  max-width: 600px;
-  z-index: 1;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
 
 .hero::before {
   content: "";
@@ -94,6 +80,12 @@ html {
 
 .hero-btn:hover {
   background: #c40812;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;   /* ← Сделать явно выше overlay */
+  max-width: 600px;
 }
 
 .hero-content p {
@@ -261,14 +253,6 @@ footer {
   font-size: 28px;
   margin-bottom: 30px;
   text-align: center;
-}
-
-.service img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  object-fit: cover;
-  aspect-ratio: 3 / 2;
 }
 
 .service p {
@@ -490,15 +474,6 @@ footer {
   color: #333; /* ← и это */
 }
 
-
-
-.faq-card p {
-  margin: 0;
-  font-size: 15px;
-  color: #333;
-}
-
-
 /* Плавающее позиционирование — как ты просил */
 
 .faq-left {
@@ -697,8 +672,9 @@ html {
 @media (max-width: 768px) {
 
   .hero-content {
-    max-width: 100%;
-    padding: 0 10%;
+    position: relative;
+    max-width: 600px;
+    z-index: 1;
   }
 
   .hero-content h1 {
