@@ -675,7 +675,7 @@ html {
     min-height: 70vh; /* Можно и меньше, если хочется выше */
     align-items: flex-start; /* Текст к верху */
     padding-right: 0;
-    padding-top: 64px; /* Небольшой отступ сверху */
+    padding-top: 76px; /* Небольшой отступ сверху */
     justify-content: center; /* Центрируем по горизонтали */
   }
 
