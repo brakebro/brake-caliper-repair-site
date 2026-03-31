@@ -10,10 +10,10 @@
   <!-- Fonts and preload -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="preload" as="image" href="/background.webp">
-  <link rel="preload" as="style" href="style.css?v=69">
+  <link rel="preload" as="style" href="style.css?v=73">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="style.css?v=69">
+  <link rel="stylesheet" href="style.css?v=73">
 
   <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -24,20 +24,10 @@
         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108310486', 'ym');
 
-    ym(108310486, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    ym(108310486, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/108310486" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z561HYT08H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z561HYT08H');
-</script>
 </head>
 
 <body>
@@ -258,8 +248,8 @@
           <textarea name="issue" maxlength="500" rows="3" placeholder="Например: тянет в сторону при торможении"></textarea>
         </label>
         <input class="callback-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="callback-submit" type="submit">Перезвоните мне</button>
-        <p class="callback-legal">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+<button class="callback-submit" type="submit">Перезвоните мне</button>
+        <label class="callback-legal callback-consent callback-field-full"><input type="checkbox" name="consent" required><span>Согласен на обработку персональных данных и принимаю <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">политику обработки персональных данных</a>.</span></label>
         <p class="callback-status" id="callback-status" aria-live="polite"></p>
       </form>
     </div>
@@ -312,6 +302,15 @@
   </div>
 </section>
 
+<div class="cookie-banner" id="cookie-banner" hidden role="region" aria-label="Уведомление об использовании cookies">
+  <p>
+    Мы используем cookies и сервисы аналитики (Яндекс.Метрика), чтобы улучшать сайт.
+    Продолжая пользоваться сайтом, вы соглашаетесь с
+    <a href="/privacy-policy.html#cookies" target="_blank" rel="noopener noreferrer">политикой cookies</a>.
+  </p>
+  <button type="button" class="cookie-accept" id="cookie-accept">Понятно</button>
+</div>
+
 <footer class="footer">
   <div class="footer-wrapper">
     <div class="footer-brand">
@@ -321,7 +320,7 @@
     <div class="footer-nav">
       <a href="#services">Услуги</a>
       <a href="#contact">Контакты</a>
-      <a href="" target="_blank" rel="noopener noreferrer">Отзывы</a>
+      <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">Политика ПДн и cookies</a>
     </div>
     <div class="footer-contact">
       <p>+7 (904) 045-91-28</p>
@@ -343,16 +342,15 @@
     const telegramBtn = document.querySelector('.contact-btn-telegram');
     const whatsappBtn = document.querySelector('.contact-btn-whatsapp');
     const phoneBtn = document.querySelector('.contact-phone-btn');
+    const cookieBanner = document.getElementById('cookie-banner');
+    const cookieAcceptBtn = document.getElementById('cookie-accept');
+    const cookieConsentKey = 'bb_cookie_consent_v1';
 
     function trackEvent(goalName, params) {
       const eventParams = params || {};
 
       if (typeof window.ym === 'function') {
         window.ym(108310486, 'reachGoal', goalName, eventParams);
-      }
-
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', goalName, eventParams);
       }
     }
 
@@ -389,6 +387,32 @@
       });
     }
 
+    if (cookieBanner && cookieAcceptBtn) {
+      let hasCookieConsent = false;
+
+      try {
+        hasCookieConsent = localStorage.getItem(cookieConsentKey) === 'accepted';
+      } catch (error) {
+        hasCookieConsent = false;
+      }
+
+      if (!hasCookieConsent) {
+        cookieBanner.hidden = false;
+      }
+
+      cookieAcceptBtn.addEventListener('click', function () {
+        try {
+          localStorage.setItem(cookieConsentKey, 'accepted');
+        } catch (error) {
+          // ignore storage errors in private/restricted mode
+        }
+
+        cookieBanner.hidden = true;
+        cookieBanner.style.display = 'none';
+        trackEvent('cookie_accept', { source: 'banner' });
+      });
+    }
+
     const observer = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
         const iframe = document.createElement('iframe');
@@ -420,11 +444,17 @@
           name: String(formData.get('name') || '').trim(),
           phone: String(formData.get('phone') || '').trim(),
           issue: String(formData.get('issue') || '').trim(),
-          website: String(formData.get('website') || '').trim()
+          website: String(formData.get('website') || '').trim(),
+          consent: Boolean(formData.get('consent'))
         };
 
         if (!payload.phone) {
           statusEl.textContent = 'Укажите номер телефона.';
+          return;
+        }
+
+        if (!payload.consent) {
+          statusEl.textContent = 'Подтвердите согласие на обработку персональных данных.';
           return;
         }
 
@@ -460,5 +490,7 @@
 
 </body>
 </html>
+
+
 
 
