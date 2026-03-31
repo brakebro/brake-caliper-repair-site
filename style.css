@@ -749,145 +749,6 @@ footer {
   font-weight: 700;
 }
 
-.callback-box {
-  max-width: 760px;
-  margin: 0 auto;
-  background: linear-gradient(180deg, #f9f9f9 0%, #f5f5f5 100%);
-  border: 1px solid #e3e3e3;
-  border-radius: 14px;
-  padding: 26px;
-  text-align: left;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-}
-
-.callback-title {
-  margin: 0 0 24px;
-  font-size: 22px;
-  font-weight: 700;
-  text-align: center;
-}
-
-.callback-form {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.callback-field {
-  display: grid;
-  gap: 9px;
-  font-size: 14px;
-}
-
-.callback-field span {
-  font-weight: 500;
-}
-
-.callback-field input,
-.callback-field textarea {
-  width: 100%;
-  border: 1px solid #d3d3d3;
-  border-radius: 10px;
-  padding: 12px 14px;
-  background: #fcfcfd;
-  color: #111;
-  font: inherit;
-}
-
-.callback-field textarea {
-  resize: vertical;
-  min-height: 110px;
-}
-
-.callback-field input:focus,
-.callback-field textarea:focus {
-  outline: none;
-  border-color: #c77a80;
-  box-shadow: 0 0 0 3px rgba(199, 122, 128, 0.15);
-}
-
-.callback-field-full {
-  grid-column: 1 / -1;
-}
-
-.callback-hp {
-  position: absolute;
-  left: -10000px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.callback-submit {
-  grid-column: 1 / -1;
-  border: none;
-  border-radius: 10px;
-  padding: 14px 16px;
-  background: #b73a48;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.callback-submit:hover {
-  background: #9f2f3b;
-}
-
-.callback-submit:disabled {
-  background: #a7a7a7;
-  cursor: wait;
-}
-
-.callback-status {
-  grid-column: 1 / -1;
-  min-height: 20px;
-  margin: 0;
-  font-size: 14px;
-}
-
-.callback-legal {
-  grid-column: 1 / -1;
-  margin: 2px 0 0;
-  font-size: 12px;
-  line-height: 1.4;
-  color: #6f6f6f;
-  text-align: center;
-}
-
-.callback-legal a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.callback-consent {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 2px;
-  color: #4f4f4f;
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-.callback-consent input[type="checkbox"] {
-  margin-top: 2px;
-  width: 16px;
-  height: 16px;
-  flex: 0 0 auto;
-}
-
-.callback-consent a {
-  color: #9f2f3b;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.callback-consent a:hover {
-  color: #812531;
-}
-
 .cookie-banner {
   position: fixed;
   left: 50%;
@@ -981,7 +842,6 @@ footer {
   height: 24px;
 }
 
-
 .faq-preview {
   text-align: center;
   margin: 40px auto;
@@ -1039,7 +899,6 @@ footer {
   display: block;
 }
 
-
 /* ДОБАВЛЯЕМ: переопределим цвета прямо при наведении */
 .faq-card:hover p,
 .faq-card:hover strong {
@@ -1075,7 +934,6 @@ footer {
 .faq-center {
   transform: translate(10px, 70px); /* по центру, но опущен вниз */
 }
-
 
 /* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
@@ -1115,7 +973,6 @@ html {
   text-align: center;
 }
 
-
 .footer-brand h6 {
   font-size: 18px;
   color: white;
@@ -1135,7 +992,6 @@ html {
   gap: 20px;
 }
 
-
 .footer-nav a {
   color: #ccc;
   text-decoration: none;
@@ -1147,7 +1003,6 @@ html {
 .footer-nav a:hover {
   color: white;
 }
-
 
 .footer-contact p {
   margin: 0;
@@ -1294,13 +1149,6 @@ html {
     color: #229ED9;
   }
 
-  .contact-card,
-  .callback-box {
-    background: #171717;
-    border-color: #2d2d2d;
-    box-shadow: none;
-  }
-
   .contact-card {
     border: none;
   }
@@ -1360,47 +1208,6 @@ html {
 
   .contact-or span {
     color: #9b9b9b;
-  }
-
-  .callback-field input,
-  .callback-field textarea {
-    background: #101010;
-    border-color: #343434;
-    color: #eee;
-  }
-
-  .callback-field input:focus,
-  .callback-field textarea:focus {
-    border-color: #8f5a60;
-    box-shadow: 0 0 0 3px rgba(143, 90, 96, 0.25);
-  }
-
-  .callback-submit {
-    background: #c64556;
-  }
-
-  .callback-submit:hover {
-    background: #ad3646;
-  }
-
-  .callback-status {
-    color: #e3e3e3;
-  }
-
-  .callback-legal {
-    color: #a9a9a9;
-  }
-
-  .callback-consent {
-    color: #bdbdbd;
-  }
-
-  .callback-consent a {
-    color: #d9828c;
-  }
-
-  .callback-consent a:hover {
-    color: #ebb0b7;
   }
 
   .cookie-banner {
@@ -1528,21 +1335,6 @@ html {
 
   .contact-phone-number {
     font-size: 28px;
-  }
-
-  .callback-box {
-    max-width: 520px;
-    padding: 18px;
-  }
-
-  .callback-title {
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 18px;
-  }
-
-  .callback-form {
-    grid-template-columns: 1fr;
   }
 
   .cookie-banner {

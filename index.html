@@ -10,10 +10,10 @@
   <!-- Fonts and preload -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="preload" as="image" href="/background.webp">
-  <link rel="preload" as="style" href="style.css?v=74">
+  <link rel="preload" as="style" href="style.css?v=75">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="style.css?v=74">
+  <link rel="stylesheet" href="style.css?v=75">
 
   <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -228,31 +228,7 @@
         <span class="contact-phone-number">+7 (904) 045-91-28</span>
       </a>
     </div>
-    <div class="contact-or" aria-hidden="true">
-      <span>ИЛИ</span>
-    </div>
 
-    <div class="callback-box">
-      <p class="callback-title">Оставьте номер — перезвоним</p>
-      <form id="callback-form" class="callback-form" novalidate>
-        <label class="callback-field">
-          <span>Имя</span>
-          <input type="text" name="name" maxlength="60" autocomplete="name" placeholder="Как к вам обращаться">
-        </label>
-        <label class="callback-field">
-          <span>Телефон</span>
-          <input type="tel" name="phone" required maxlength="30" autocomplete="tel" placeholder="+7 (___) ___-__-__">
-        </label>
-        <label class="callback-field callback-field-full">
-          <span>Что беспокоит? (необязательно)</span>
-          <textarea name="issue" maxlength="500" rows="3" placeholder="Например: тянет в сторону при торможении"></textarea>
-        </label>
-        <input class="callback-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-<button class="callback-submit" type="submit">Перезвоните мне</button>
-        <label class="callback-legal callback-consent callback-field-full"><input type="checkbox" name="consent" required><span>Согласен на обработку персональных данных и принимаю <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">политику обработки персональных данных</a>.</span></label>
-        <p class="callback-status" id="callback-status" aria-live="polite"></p>
-      </form>
-    </div>
   </section>
 
 <hr class="faq-divider">
@@ -332,9 +308,6 @@
   </div>
 </footer>
 
-<script>
-  window.LEAD_API_URL = window.LEAD_API_URL || 'https://brake-caliper-repair-site.vercel.app/api/lead';
-</script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const heroCta = document.querySelector('.hero-btn[href="#contact-phone"]');
@@ -430,61 +403,6 @@
 
     observer.observe(document.getElementById('map-container'));
 
-    const callbackForm = document.getElementById('callback-form');
-    const statusEl = document.getElementById('callback-status');
-
-    if (callbackForm && statusEl) {
-      callbackForm.addEventListener('submit', async function (event) {
-        event.preventDefault();
-        statusEl.textContent = '';
-
-        const submitBtn = callbackForm.querySelector('.callback-submit');
-        const formData = new FormData(callbackForm);
-        const payload = {
-          name: String(formData.get('name') || '').trim(),
-          phone: String(formData.get('phone') || '').trim(),
-          issue: String(formData.get('issue') || '').trim(),
-          website: String(formData.get('website') || '').trim(),
-          consent: Boolean(formData.get('consent'))
-        };
-
-        if (!payload.phone) {
-          statusEl.textContent = 'Укажите номер телефона.';
-          return;
-        }
-
-        if (!payload.consent) {
-          statusEl.textContent = 'Подтвердите согласие на обработку персональных данных.';
-          return;
-        }
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Отправляем...';
-
-        const endpoint = window.LEAD_API_URL || '/api/lead';
-
-        try {
-          const response = await fetch(endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-
-          if (!response.ok) {
-            throw new Error('request_failed');
-          }
-
-          trackEvent('lead_submit_success', { form: 'callback' });
-          callbackForm.reset();
-          statusEl.textContent = 'Спасибо! Свяжемся с вами в ближайшее время.';
-        } catch (error) {
-          statusEl.textContent = 'Не удалось отправить заявку. Позвоните, пожалуйста: +7 (904) 045-91-28';
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Перезвоните мне';
-        }
-      });
-    }
   });
 </script>
 
